@@ -23,7 +23,8 @@ module.exports = createCoreController("api::article.article", ({ strapi }) => ({
         html: `You have ${count} published articles`,
       });
     } catch(err) {
-      console.log(err);
+      // Commented out for demo purposes
+      // console.error(err);
     }
     ctx.status = 200;
   },

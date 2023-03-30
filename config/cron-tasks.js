@@ -16,7 +16,8 @@ module.exports = {
           html: `You have ${count} published articles`,
         });
       } catch(err) {
-        console.log(err);
+        // Commented out for demo purposes
+        //console.error(err);
       }
     },
     options: {
