@@ -25,6 +25,6 @@ module.exports = createCoreController("api::article.article", ({ strapi }) => ({
     } catch(err) {
       console.log(err);
     }
-    
+    ctx.status = 200;
   },
 }));
