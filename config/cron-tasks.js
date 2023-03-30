@@ -5,15 +5,19 @@ module.exports = {
         publicationState: "live",
       });
 
-      console.log(`Sending email with published article count ${count}`);
+      console.log(`Sending email with published article count ${count} (run by Strapi cron)`);
 
-      await strapi.plugins.email.services.email.send({
-        to: "brayden@gmail.com",
-        from: "noreply@strapi.com",
-        subject: "Post count",
-        text: `You have ${count} published articles`,
-        html: `You have ${count} published articles`,
-      });
+      try {
+        await strapi.plugins.email.services.email.send({
+          to: "brayden@gmail.com",
+          from: "noreply@strapi.com",
+          subject: "Post count",
+          text: `You have ${count} published articles`,
+          html: `You have ${count} published articles`,
+        });
+      } catch(err) {
+        console.log(err);
+      }
     },
     options: {
       // Every minute
